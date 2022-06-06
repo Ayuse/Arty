@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react';
+import Hero from './Hero';
+import Loader from './Loader';
+import gsap from 'gsap';
+// import art from './images/art.jpg';
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    gsap.to('.background', {
+      display: 'block',
+      duration: 0,
+    });
+    gsap.fromTo(
+      '.background',
+      { backgroundColor: '#ffffff' },
+      {
+        backgroundColor: '#d8d7d7',
+        duration: 1.5,
+        ease: 'power3.in',
+        delay: 4,
+      }
+    );
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='background'>
+      {loading ? (
+        <div>
+          <Loader setLoading={setLoading} />
+        </div>
+      ) : (
+        <>
+          <Hero />
+        </>
+      )}
     </div>
   );
 }
