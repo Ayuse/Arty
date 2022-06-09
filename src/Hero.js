@@ -6,7 +6,7 @@ import art from './images/art.jpg';
 import logo from './images/Logo.svg';
 import arrow from './images/Arrow.svg';
 
-import { gsap } from 'gsap';
+import gsap from 'gsap';
 
 function Hero() {
   const tl = gsap.timeline();
@@ -24,7 +24,7 @@ function Hero() {
       { y: 1000 },
       {
         y: 0,
-        duration: 1.5,
+        duration: 0.8,
         ease: 'power3.out',
       }
     );
@@ -33,7 +33,7 @@ function Hero() {
       { scale: 1.2 },
       {
         scale: 1,
-        duration: 1.5,
+        duration: 0.8,
         ease: 'power3.in',
       },
       '<'
@@ -55,7 +55,7 @@ function Hero() {
       },
       {
         y: 0,
-        duration: 1,
+        duration: 0.6,
 
         ease: 'power3.ease',
       }
@@ -65,7 +65,7 @@ function Hero() {
       { y: -80 },
       {
         y: 0,
-        duration: 1,
+        duration: 0.6,
         ease: 'power3.in',
       }
     );
