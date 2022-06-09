@@ -6,36 +6,78 @@ import art from './images/art.jpg';
 import logo from './images/Logo.svg';
 import arrow from './images/Arrow.svg';
 
-import gsap from 'gsap';
+import { gsap } from 'gsap';
 
 function Hero() {
+  const tl = gsap.timeline();
   let line1 = useRef(null);
   let line2 = useRef(null);
   let line3 = useRef(null);
 
   useEffect(() => {
-    gsap.fromTo(
+    tl.to('.container', {
+      display: 'block',
+      duration: 0,
+    });
+    tl.fromTo(
+      '.images',
+      { y: 1000 },
+      {
+        y: 0,
+        duration: 1.5,
+        ease: 'power3.out',
+      }
+    );
+    tl.fromTo(
+      '.images',
+      { scale: 1.2 },
+      {
+        scale: 1,
+        duration: 1.5,
+        ease: 'power3.in',
+      },
+      '<'
+    );
+    tl.fromTo(
       [line1, line2, line3],
       { y: 80 },
       {
         duration: 1,
         y: 0,
-        // opacity: 1,
         stagger: 0.1,
         ease: 'power3.ease',
-        delay: 1,
       }
     );
-    gsap.fromTo(
-      '.image',
-      { y: 1000, scale: 1.2 },
+    tl.fromTo(
+      '.explore-text-inner',
+      {
+        y: 80,
+      },
       {
         y: 0,
-        scale: 1,
-        duration: 1.5,
-        ease: 'power3.out',
+        duration: 1,
 
-        delay: 1,
+        ease: 'power3.ease',
+      }
+    );
+    tl.fromTo(
+      '.nav',
+      { y: -80 },
+      {
+        y: 0,
+        duration: 1,
+        ease: 'power3.in',
+      }
+    );
+    tl.from(
+      '.arrow-svg',
+      { x: 10 },
+      {
+        x: 10,
+
+        duration: 1.5,
+        ease: 'power3.ease',
+        repeat: -1,
       }
     );
   }, []);
@@ -98,14 +140,16 @@ function Hero() {
               </h1>
             </div>
             <div className='explore-text'>
-              <h1>Explore</h1>
-              <div className='arrow-svg'>
-                <img src={arrow} alt='' />
+              <div className='explore-text-inner'>
+                <h1>Explore</h1>
+                <div className='arrow-svg'>
+                  <img src={arrow} alt='' />
+                </div>
               </div>
             </div>
           </div>
           <div className='image'>
-            <img src={art} alt='' />
+            <img className='images' src={art} alt='' />
           </div>
         </section>
       </div>

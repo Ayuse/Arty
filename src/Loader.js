@@ -13,7 +13,7 @@ export default function Loader({ setLoading }) {
       ease: 'power3.in',
       onComplete: () => setLoading(false),
     });
-  }, []);
+  }, [setLoading]);
 
   return (
     <div className='loader'>

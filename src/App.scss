@@ -6,6 +6,7 @@
   height: 100vh;
   position: relative;
   overflow: hidden;
+  display: none;
 
   .nav{
     margin: 20px 50px;
@@ -26,7 +27,7 @@
            font-size: 16px;
            line-height: 21px;
            
-           color: #fcf9f9;
+           color: #6B6B6B;
          }
        }
        
@@ -74,15 +75,25 @@
       }
 
       .explore-text{
-        display: flex;
         gap: 20px;
         font-family: 'Lato',-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         font-weight: 300;
         font-size: 38px;
+        height: 85px;
         line-height: 85px;
         font-style: normal;
         /* or 104% */
         letter-spacing: 0.05em;
+        overflow: hidden;
+
+        &:hover{
+          background-color:cadetblue;
+        }
+        
+        .explore-text-inner{
+          display: flex;
+
+        }
       }
 
     }
@@ -138,6 +149,7 @@
 }
 
 .background{
-  background-color: #d8d7d7;
-  display: none;
+  background-color: #ffffff;
+  cursor: none;
+  
 }
