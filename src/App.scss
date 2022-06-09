@@ -70,6 +70,9 @@
         .header-text-line{
           height: 82px;
           overflow: hidden;
+          &:hover{
+            color:cadetblue;
+          }
         }
 
       }
@@ -87,7 +90,7 @@
         overflow: hidden;
 
         &:hover{
-          background-color:cadetblue;
+          color:cadetblue;
         }
         
         .explore-text-inner{
